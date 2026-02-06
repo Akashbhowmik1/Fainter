@@ -1182,7 +1182,7 @@
             </button>
             <nav class="nav-links" id="nav-links">
                 <a href="https://stake.mba/?c=fainter23"><i class="fas fa-random"></i> Stake</a>
-                <a href="https://akashbhowmik1.github.io/Fainter/"><i class="fas fa-trophy"></i> Leaderboard</a>
+                <a href="/Leaderbord"><i class="fas fa-trophy"></i> Leaderboard</a>
                 <a href="#" class="active"><i class="fas fa-gift"></i> Rewards</a>
                 <a href="#"><i class="fas fa-question-circle"></i> Help</a>
             </nav>
@@ -1601,7 +1601,7 @@
                 const row = btn.closest('.level-row');
                 const rewardAmount = row.querySelector('.level-reward').textContent;
                 
-                
+               
 
                 
                 
@@ -1615,7 +1615,8 @@
                 }, 1500);
             }
 
-            
+            function markAsClaimed(button, rank, level, reward) {
+
                 
                 // Update progress bar
                 updateProgressBar();
@@ -1894,9 +1895,13 @@
             `;
             document.head.appendChild(style);
 
-           
-            
-        
+            // Expose some functions for debugging
+            window.brazRewards = {
+                resetAllClaims: window.resetAllClaims,
+                showToast,
+                getClaimedCount: () => state.claimedRewards.size
+            };
+        }
     </script>
 </body>
 </html>
