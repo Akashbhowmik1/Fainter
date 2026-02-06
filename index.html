@@ -1840,17 +1840,27 @@ function filterLeaderboard(term){
         searchInfo.classList.remove('active');
     }
 }
-/* ================= TABLE ================= */
 function populateLeaderboardTable(){
     const container=document.getElementById('leaderboard-rows');
     container.innerHTML='';
-    let displayData=filteredData.slice(0,20);
-    if(displayData.length<20){
-        const missing=20-displayData.length;
+
+    // Remove podium ranks (1–3)
+    let displayData = filteredData
+        .filter(player => player.rank > 3)
+        .slice(0, 20);
+
+    // If less than 20 rows, continue rank numbering AFTER last visible rank
+    if(displayData.length < 20){
+        let nextRank = displayData.length
+            ? displayData[displayData.length - 1].rank + 1
+            : 4; // start from rank 4
+
+        const missing = 17 - displayData.length;
         for(let i=0;i<missing;i++){
-            displayData.push({name:"Unknown",wagered:0,rank:displayData.length+1});
+            displayData.push({name:"Unknown",wagered:0,rank:nextRank++});
         }
     }
+
     displayData.forEach(player=>{
         const prize=getPrizeForRank(player.rank);
         const row=document.createElement('div');
@@ -1869,6 +1879,7 @@ function populateLeaderboardTable(){
         container.appendChild(row);
     });
 }
+
 /* ================= STATS ================= */
 function updateStats(){
     const totalW=leaderboardData.reduce((sum,p)=>sum+p.wagered,0);
