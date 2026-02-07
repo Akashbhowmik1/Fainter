@@ -786,6 +786,7 @@
             margin-left: 10px;
             color: grey;
             cursor: pointer;
+            
         }
      
         .table-wagered, .table-prize {
@@ -1428,8 +1429,8 @@
             }
           
             .podium-card {
-                padding: 55px 70px;
-                min-height: 360px;
+                padding: 55px 90px;
+                min-height: 400px;
             }
           
             .rank-badge {
@@ -1534,6 +1535,25 @@
                 font-size: 16px;
             }
         }
+
+
+        @media (max-width:768px){
+    body::before,
+    body::after{
+        animation:none;
+    }
+}
+@media (max-width:768px){
+    .podium-card{
+        animation:none;
+    }
+}
+@media (max-width:768px){
+    *{
+        box-shadow: 0 2px 8px rgba(0,0,0,0.25) !important;
+    }
+}
+
       
     </style>
 </head>
@@ -1872,7 +1892,7 @@ function populateLeaderboardTable(){
         }
         row.innerHTML=`
         <div class="table-rank">${player.rank}</div>
-        <div class="table-player">${player.name} <i class="fas fa-copy copy-btn" onclick="copyToClipboard('${player.name}')"></i></div>
+        <div class="table-player">${player.name} </div>
         <div class="table-wagered">$${player.wagered.toLocaleString()}</div>
         <div class="table-prize">${prize.amount}</div>
         `;
