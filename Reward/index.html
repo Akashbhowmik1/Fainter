@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
@@ -140,15 +140,16 @@
             display: flex;
             align-items: center;
             gap: 10px;
+           
         }
         
-        .logo-icon {
-            font-size: 32px;
-            background: linear-gradient(90deg, var(--primary), var(--accent));
-            -webkit-background-clip: text;
-            background-clip: text;
-            color: transparent;
-        }
+       .logo-icon{
+    display:inline-block;
+    width:40px;
+    height:40px;
+    background:url('https://fainterhdrewards.com/logo.webp') no-repeat center/contain;
+}
+
         
         .nav-links {
             display: flex;
@@ -208,6 +209,7 @@
             border-radius: 10px;
             background: var(--glass-bg);
             border: 1px solid var(--glass-border);
+            z-index: 100;
         }
         
         /* Stats Bar */
@@ -1161,6 +1163,26 @@
             0% { transform: rotate(0deg); }
             100% { transform: rotate(360deg); }
         }
+
+
+        @media (max-width:768px){
+    .bg-particle{
+        animation:none;
+        filter: blur(20px);   /* lighter */
+        opacity:0.35;
+    }
+}
+@media (max-width:768px){
+    .title-badge,
+    .progress-fill::after,
+    .bg-particle{
+        animation:none;
+    }
+}
+
+
+
+        
     </style>
 </head>
 <body>
@@ -1176,7 +1198,7 @@
     <header>
         <div class="container nav-container">
             <div class="logo">
-                <i class="fas fa-gem logo-icon"></i>
+                <img src="https://fainterhdrewards.com/logo.webp" class="logo-icon" alt="Logo">
                  REWARDS
             </div>
             <button class="mobile-menu-btn" id="mobile-menu-btn">
@@ -1649,12 +1671,12 @@
                 });
                 
                 // Auto-expand configured ranks
-                state.autoExpandRanks.forEach(rankName => {
-                    const rankElement = document.querySelector(`.rank-item.${rankName}`);
-                    if (rankElement) {
-                        toggleRank(rankElement.querySelector('.rank-header'));
-                    }
-                });
+                //state.autoExpandRanks.forEach(rankName => {
+                   // const rankElement = document.querySelector(`.rank-item.${rankName}`);
+                    //if (rankElement) {
+                      //  toggleRank(rankElement.querySelector('.rank-header'));
+                 //   }
+              //  });
             }
 
             function toggleRank(header) {
