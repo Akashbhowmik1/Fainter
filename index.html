@@ -1789,13 +1789,19 @@ function parseCSVToLeaderboard(csvText){
     const lines = csvText.trim().split("\n");
     /* Read total participants from column E (E1) */
     const firstRow = parseLine(lines[0]);
-    totalParticipants = parseInt(firstRow[4]) || 0;
-    const rows = lines.slice(1);
+    totalParticipants = 0;
+
+   const rows = lines.slice(1).filter(l => l.trim() !== "");
+
     let data = rows.map(line=>{
         const fields=parseLine(line);
-        const name=fields[0]||"Unknown";
-        const wagered=parseFloat(fields[1])||0;
-        const rank=parseInt(fields[2])||0;
+       const name = fields[2] || "Unknown";        // user_name
+const wagered = parseFloat(
+    (fields[3] || "0").replace(/[$,]/g, '')
+) || 0;
+
+const rank = parseInt(fields[4]) || 0;      // rank
+
         if(name.trim()==='') return null;
         return {name,wagered,rank};
     }).filter(Boolean);
@@ -2020,7 +2026,7 @@ document.addEventListener('DOMContentLoaded',()=>{
             autoRefreshInterval = null;
             autoRefreshStatus.textContent = 'Off';
         } else {
-            autoRefreshInterval = setInterval(initializeData, 3600000); // every hour
+            autoRefreshInterval = setInterval(initializeData, 120000); // every 2 minutes
             autoRefreshStatus.textContent = 'On';
         }
     });
