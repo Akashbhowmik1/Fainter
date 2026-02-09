@@ -561,17 +561,18 @@
 }
         /* Wagered Amount */
         .wagered-amount {
-            font-size: clamp(22px, 6vw, 32px);
-            font-weight: 800;
-            color: white;
-            margin-bottom: 20px;
-            margin-top: 3px;
-            text-shadow: 0 2px 15px var(--theme-primary-glow);
-            overflow: hidden;
-            text-overflow: ellipsis;
-            white-space: nowrap;
-            max-width: 100%;
-        }
+    font-size: clamp(22px, 6vw, 32px);
+    font-weight: 800;
+    color: white;
+    margin-bottom: 20px;
+    margin-top: 3px;
+    text-shadow: 0 2px 15px var(--theme-primary-glow);
+    overflow: visible;
+    white-space: normal;
+    word-break: break-word;
+    max-width: 100%;
+}
+
         body.light-theme .wagered-amount {
             color: black;
         }
@@ -1554,6 +1555,15 @@
     }
 }
 
+
+
+@media (max-width: 480px) {
+    .table-header div:nth-child(4),
+    .table-row div:nth-child(4){
+        transform: translateX(20px);
+    }
+}
+
       
     </style>
 </head>
@@ -1875,7 +1885,7 @@ function populateLeaderboardTable(){
     // Remove podium ranks (1–3)
     let displayData = filteredData
         .filter(player => player.rank > 3)
-        .slice(0, 20);
+        .slice(0, 17);
 
     // If less than 20 rows, continue rank numbering AFTER last visible rank
     if(displayData.length < 20){
