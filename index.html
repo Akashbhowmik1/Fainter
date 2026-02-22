@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html lang="en" style="--theme-primary:#a855f7;--theme-primary-dark:#9333ea;--theme-accent:#FFC700;--theme-accent-dark:#E5B200;--theme-primary-glow:rgba(168, 85, 247, 0.6);--theme-bg-slate:#0a0a14;--theme-bg-slate-light:#12121f">
 <head>
@@ -6,6 +7,7 @@
     <title>Stake Leaderboard</title>
     <meta name="description" content="Earn rewards through wagering with Fainter23 on Stake."/>
     <link rel="icon" href="https://fainterhdrewards.com/logo.webp">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@600;800&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
     <style>
@@ -806,6 +808,139 @@
             color: var(--theme-primary);
             font-weight: 700;
         }
+
+
+
+        /* Refer Section */
+/* Premium Refer Styling */
+
+.refer-box {
+    background: linear-gradient(145deg, rgba(26, 26, 46, 0.95), rgba(18, 18, 31, 0.98));
+    border-radius: 20px;
+    padding: 60px 50px;
+    border: 1px solid rgba(168, 85, 247, 0.4);
+    box-shadow: 0 25px 80px rgba(168, 85, 247, 0.25);
+    text-align: center;
+    backdrop-filter: blur(20px);
+    position: relative;
+    overflow: hidden;
+}
+
+.refer-box:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 30px 80px rgba(168, 85, 247, 0.35);
+}
+
+.refer-badge {
+    display: inline-block;
+    padding: 6px 14px;
+    background: linear-gradient(90deg, var(--theme-primary), var(--theme-accent));
+    color: black;
+    font-weight: 700;
+    font-size: 12px;
+    border-radius: 20px;
+    margin-bottom: 20px;
+}
+
+.refer-title {
+    font-family: 'Orbitron', sans-serif;
+    font-size: 42px;
+    font-weight: 800;
+    margin-bottom: 25px;
+    line-height: 1.2;
+    letter-spacing: 1px;
+}
+
+.refer-title span {
+    background: linear-gradient(90deg, var(--theme-primary), var(--theme-accent));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+
+
+
+.refer-subtitle {
+    font-size: 18px;
+    opacity: 0.8;
+    margin-bottom: 35px;
+}
+
+.refer-features {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 18px;
+    margin: 40px 0;
+}
+
+.refer-feature {
+    background: rgba(168, 85, 247, 0.1);
+    padding: 14px;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    font-weight: 500;
+    transition: 0.3s ease;
+}
+
+.refer-feature:hover {
+    background: rgba(168, 85, 247, 0.25);
+    transform: translateX(5px);
+}
+
+.refer-feature i {
+    color: var(--theme-accent);
+    font-size: 18px;
+}
+
+.refer-warning {
+    background: rgba(255, 199, 0, 0.1);
+    border: 1px solid rgba(255, 199, 0, 0.4);
+    padding: 15px;
+    border-radius: 10px;
+    font-weight: 600;
+    color: var(--theme-accent);
+    margin-bottom: 30px;
+}
+
+.refer-buttons {
+    display: flex;
+    gap: 15px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+/* Hide utility */
+.hidden {
+    display: none;
+}
+
+/* Proper Refer Section Layout */
+.refer-section {
+    min-height: 100vh;
+    padding: 120px 20px 80px 20px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: radial-gradient(circle at center, rgba(168,85,247,0.15), transparent 60%);
+    animation: fadeIn 0.4s ease;
+}
+
+.refer-section .container {
+    max-width: 900px;
+}
+
+@media (max-width: 768px) {
+    .refer-box {
+        padding: 40px 25px;
+    }
+
+    .refer-title {
+        font-size: 30px;
+    }
+}
+
+
         /* CTA Section */
         .cta-section {
             text-align: center;
@@ -1587,13 +1722,14 @@
                 <a href="https://akashbhowmik1.github.io/Fainter/Reward/" class="nav-btn btn-secondary">Rewards</a>
                 <a href="https://discord.gg/f5ZMxrW7Dc" class="nav-btn btn-secondary">Help</a>
                 <a href="#" class="nav-btn btn-secondary" id="auto-refresh-btn">Auto-refresh <span id="auto-refresh-status">Off</span></a>
-                <a href="#" class="nav-btn btn-secondary" id="theme-toggle-btn">Theme <span id="theme-status">Dark</span></a>
+                <a href="#" class="nav-btn btn-secondary" id="refer-toggle-btn">Refer  </span></a>
             </div>
         </div>
     </nav>
   
     <!-- Main Content -->
     <main>
+            <div id="main-content">
         <div class="container">
             <!-- Countdown Section -->
             <section class="countdown-section">
@@ -1718,6 +1854,57 @@
             </section>
           
         </div>
+         </div>
+
+        <!-- Refer Section -->
+<section class="refer-section hidden" id="refer-section">
+    <div class="container">
+        <div class="refer-box">
+            <div class="refer-badge">EXCLUSIVE PROGRAM</div>
+
+            <h2 class="refer-title">
+                REFER A <span>HIGH ROLLER</span>  
+                <br> & EARN BIG 💸
+            </h2>
+
+            <p class="refer-subtitle">
+                Know someone who wagers big on Stake?
+                Send them to us and unlock a custom referral bonus.
+            </p>
+
+            <div class="refer-features">
+                <div class="refer-feature">
+                    <i class="fas fa-coins"></i>
+                    Bonus based on total wager
+                </div>
+                <div class="refer-feature">
+                    <i class="fas fa-shield-alt"></i>
+                    Secure & tracked manually
+                </div>
+                <div class="refer-feature">
+                    <i class="fas fa-bolt"></i>
+                    Paid within 48 hours
+                </div>
+            </div>
+
+            <div class="refer-warning">
+                ⚠ Must be discussed in advance.
+                Retroactive referrals are not eligible.
+            </div>
+
+            <div class="refer-buttons">
+                <a href="https://discord.gg/f5ZMxrW7Dc" 
+                   class="nav-btn btn-primary">
+                   Create Ticket
+                </a>
+
+                <button class="nav-btn btn-secondary" id="back-to-main">
+                    ← Back
+                </button>
+            </div>
+        </div>
+    </div>
+</section>
     </main>
   
     <!-- Footer -->
@@ -2017,14 +2204,23 @@ document.addEventListener('DOMContentLoaded',()=>{
         navMenu.classList.toggle('active');
     });
 
-    // Theme toggle
-    const themeToggle = document.getElementById('theme-toggle-btn');
-    const themeStatus = document.getElementById('theme-status');
-    themeToggle.addEventListener('click', (e) => {
-        e.preventDefault();
-        document.body.classList.toggle('light-theme');
-        themeStatus.textContent = document.body.classList.contains('light-theme') ? 'Light' : 'Dark';
-    });
+   // Refer toggle
+const referBtn = document.getElementById('refer-toggle-btn');
+const referSection = document.getElementById('refer-section');
+const mainContent = document.getElementById('main-content');
+const backBtn = document.getElementById('back-to-main');
+
+referBtn.addEventListener('click', (e) => {
+    e.preventDefault();
+    referSection.style.display = 'block';
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+    mainContent.style.display = 'none';
+});
+
+backBtn.addEventListener('click', () => {
+    referSection.style.display = 'none';
+    mainContent.style.display = 'block';
+});
 
     // Auto-refresh
     const autoRefreshBtn = document.getElementById('auto-refresh-btn');
